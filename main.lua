@@ -26,12 +26,12 @@ end
 
 function JavaScript.try(Try, Catch)
     if not Try or typeof(Try) ~= "function" then error("<try> Try is not function.") end
-    if not Catch then Catch = function() elseif typeof(Catch) ~= "function" then error("<try> Catch is not function.") end
+    if not Catch then Catch = "function" elseif typeof(Catch) ~= "function" then error("<try> Catch is not function.") end
     
     local success, error = pcall(Try)
     if not success then
         Catch(error)
-    end -- ok if u actually watch changes i didnt test this soooo dont blame on me if it doesnt work
+    end
 end
 
 return JavaScript
